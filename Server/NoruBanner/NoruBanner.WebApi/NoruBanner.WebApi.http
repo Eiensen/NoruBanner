@@ -1,6 +1,0 @@
-@NoruBanner.WebApi_HostAddress = http://localhost:5067
-
-GET {{NoruBanner.WebApi_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

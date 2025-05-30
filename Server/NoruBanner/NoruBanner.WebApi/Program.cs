@@ -1,3 +1,7 @@
+using NoruBanner.WebApi.Extensions;
+using NoruBanner.WebApi.Features.Statistics.Endpoints;
+using NoruBanner.WebApi.Features.Tracking.Endpoints;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
