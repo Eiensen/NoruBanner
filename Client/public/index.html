@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Опрос | NoruBanner</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script>
+      function showPage(page) {
+        document.querySelectorAll(".page").forEach((p) => {
+          p.style.display = "none";
+        });
+        document.getElementById(page).style.display = "block";
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Исследование общественного мнения</h1>
+    </header>
+
+    <nav>
+      <button onclick="showPage('home')">Главная</button>
+      <button onclick="showPage('survey')">Опрос</button>
+    </nav>
+
+    <main>
+      <br />
+      <div id="home" class="page" style="display: block">
+        <div class="banner-container" onclick="showPage('survey')">
+          <img
+            src="./images/banner.jpg"
+            class="noru-banner"
+            data-banner-id="survey-banner-1"
+          />
+        </div>
+      </div>
+
+      <div id="survey" class="page" style="display: none">
+        <form id="surveyForm" class="survey-form">
+          <div class="form-group">
+            <label>1. Как вы оцениваете чистоту в вашем районе?</label>
+            <div class="options">
+              <label><input type="radio" name="q1" value="5" /> Отлично</label>
+              <label><input type="radio" name="q1" value="4" /> Хорошо</label>
+              <label
+                ><input type="radio" name="q1" value="3" />
+                Удовлетворительно</label
+              >
+              <label><input type="radio" name="q1" value="2" /> Плохо</label>
+              <label
+                ><input type="radio" name="q1" value="1" /> Очень плохо</label
+              >
+            </div>
+          </div>
+          <button type="submit" class="btn">Отправить ответы</button>
+        </form>
+      </div>
+    </main>
+
+    <script src="/js/bannerTracker.js"></script>
+    <script src="/js/survey.js"></script>
+  </body>
+</html>

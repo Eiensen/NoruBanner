@@ -37,6 +37,18 @@ services:
     networks:
       - norubanner_network
 
+  norubanner.client:
+    build:
+      context: ./Client
+      dockerfile: Dockerfile
+    container_name: norubanner_client
+    ports:
+      - "80:80"
+    depends_on:
+      - norubanner.webapi
+    networks:
+      - norubanner_network
+
 volumes:
   postgres_data:
 
