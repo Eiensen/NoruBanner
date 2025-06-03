@@ -6,7 +6,7 @@ const EventType = {
 class BannerTracker {
   constructor() {
     const baseUrl = window.location.protocol + "//" + window.location.host;
-    this._apiUrl = `${baseUrl}:8080/api/tracking/event`;
+    this._apiUrl = `${baseUrl}/api/tracking/event`;
     this._sessionId = this._getOrCreateSessionId();
     this._retryDelay = 1000;
     this._maxRetries = 3;
