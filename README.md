@@ -77,8 +77,8 @@ docker compose up --build -d
 
 3. Проверьте работу приложения:
 - Frontend: http://localhost:80
-- API: http://localhost:7063
-- Swagger UI: http://localhost:7063/swagger
+- API: [http://localhost:8080]
+- Swagger UI: [http://localhost:8080/swagger/index.html]
 
 ### Интеграция на страницу
 
