@@ -24,7 +24,7 @@ NoruBanner - это система отслеживания взаимодейс
 
 ### Tracking API
 ```http
-POST /api/v1/tracking/event
+POST /api/tracking/event
 ```
 Записывает событие просмотра или клика по баннеру.
 
@@ -39,7 +39,7 @@ POST /api/v1/tracking/event
 
 ### Statistics API
 ```http
-GET /api/v1/statistics/banner/{bannerId}
+GET /api/statistics/banner/{bannerId}
 ```
 Возвращает статистику по конкретному баннеру.
 
