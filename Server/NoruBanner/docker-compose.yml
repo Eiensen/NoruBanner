@@ -1,7 +1,13 @@
 version: '3.8'
 
+name: norubanner
+
+x-common-options: &common-options
+  restart: "no"
+
 services:
   db:
+    <<: *common-options
     image: postgres:16
     container_name: norubanner_db
     environment:
@@ -19,8 +25,8 @@ services:
       retries: 5
     networks:
       - norubanner_network
-
   norubanner.webapi:
+    <<: *common-options
     image: ${DOCKER_REGISTRY-}norubannerwebapi
     container_name: norubanner_api
     build:
@@ -42,8 +48,8 @@ services:
       retries: 3
     networks:
       - norubanner_network
-
   norubanner.client:
+    <<: *common-options
     build:
       context: ../../Client
       dockerfile: Dockerfile
@@ -57,7 +63,11 @@ services:
 
 volumes:
   postgres_data:
+    name: norubanner_postgres_data
 
 networks:
   norubanner_network:
     driver: bridge
+    attachable: true
+    labels:
+      - "com.docker.compose.project=norubanner"
