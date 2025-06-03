@@ -24,7 +24,7 @@ NoruBanner - это система отслеживания взаимодейс
 
 ### Tracking API
 ```http
-POST /api/v1/tracking/event
+POST /api/tracking/event
 ```
 Записывает событие просмотра или клика по баннеру.
 
@@ -33,13 +33,13 @@ POST /api/v1/tracking/event
 {
   "bannerId": "123e4567-e89b-4456-8af1-123e4567abcd",
   "userSessionId": "session-98765432-1234-5678-9012-345678901234",
-  "eventType": "Viewed" // или "Clicked"
+  "eventType": 1 //"Viewed"  или  2 //"Clicked"
 }
 ```
 
 ### Statistics API
 ```http
-GET /api/v1/statistics/banner/{bannerId}
+GET /api/statistics/banner/{bannerId}
 ```
 Возвращает статистику по конкретному баннеру.
 
@@ -77,8 +77,8 @@ docker compose up --build -d
 
 3. Проверьте работу приложения:
 - Frontend: http://localhost:80
-- API: http://localhost:7063
-- Swagger UI: http://localhost:7063/swagger
+- API: http://localhost:8080
+- Swagger UI: http://localhost:8080/swagger/index.html
 
 ### Интеграция на страницу
 
