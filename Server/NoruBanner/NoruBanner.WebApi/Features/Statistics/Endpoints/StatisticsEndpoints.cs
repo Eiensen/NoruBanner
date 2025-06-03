@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using NoruBanner.WebApi.Features.Statistics.Models;
 using NoruBanner.WebApi.Features.Statistics.Queries;
+using Microsoft.AspNetCore.Http;
 
 namespace NoruBanner.WebApi.Features.Statistics.Endpoints;
 
 public static class StatisticsEndpoints
-{
+{    
     public static void MapStatisticsEndpoints(this IEndpointRouteBuilder app)
     {
         var group = app.MapGroup("api/statistics")

@@ -20,8 +20,19 @@ public static class ServiceCollectionExtensions
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.AddDbContext<AppDbContext>(options =>
-            options.UseNpgsql(configuration.GetConnectionString("Default")));
+        // Add logging
+        services.AddLogging();
+
+        // Configure DbContext
+        services.AddDbContext<AppDbContext>((serviceProvider, options) =>
+        {
+            var logger = serviceProvider.GetRequiredService<ILogger<AppDbContext>>();
+            options.UseNpgsql(
+                configuration.GetConnectionString("Default"),
+                npgsqlOptions => npgsqlOptions.EnableRetryOnFailure());
+            options.EnableDetailedErrors();
+            options.EnableSensitiveDataLogging();
+        });
                
         services.AddScoped<IBannerEventRepository, BannerEventRepository>();
         services.AddScoped<IBannerStatisticsRepository, BannerStatisticsRepository>();

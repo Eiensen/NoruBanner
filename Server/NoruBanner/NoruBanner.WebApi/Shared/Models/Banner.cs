@@ -2,8 +2,8 @@
 
 public class Banner
 {
-    public Guid Id { get; set; }
-    public string ImageUrl { get; set; }
+    public Guid Id { get; init; } = Guid.NewGuid();
+    public required string ImageUrl { get; set; }
     public Guid SiteId { get; set; }
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
 }

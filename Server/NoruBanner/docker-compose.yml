@@ -27,19 +27,25 @@ services:
       context: .
       dockerfile: NoruBanner.WebApi/Dockerfile
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__Default=Host=db;Port=5432;Database=NoruBannerDb;Username=postgres;Password=your_strong_password
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ConnectionStrings__Default=Host=db;Port=5432;Database=NoruBannerDb;Username=postgres;Password=123456
+      - ASPNETCORE_URLS=http://+:80
     depends_on:
       db:
         condition: service_healthy
     ports:
       - "8080:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
     networks:
       - norubanner_network
 
   norubanner.client:
     build:
-      context: ./Client
+      context: ../../Client
       dockerfile: Dockerfile
     container_name: norubanner_client
     ports:

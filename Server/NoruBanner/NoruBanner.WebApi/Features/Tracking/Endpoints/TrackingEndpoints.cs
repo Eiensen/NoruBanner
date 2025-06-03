@@ -1,11 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NoruBanner.WebApi.Features.Tracking.Commands;
+using Microsoft.AspNetCore.Http;
 
 namespace NoruBanner.WebApi.Features.Tracking.Endpoints;
 
 public static class TrackingEndpoints
-{
+{    
     public static void MapTrackingEndpoints(this IEndpointRouteBuilder app)
     {
         var group = app.MapGroup("api/tracking")
